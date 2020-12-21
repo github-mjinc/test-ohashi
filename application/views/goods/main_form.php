@@ -36,7 +36,8 @@
               </td>
               <td>
                 <!-- deleteでidをとってデータを消していくという方法 -->
-                <!-- get方式でidを取得 -->
+                <!-- getでidを取得する -->
+                <!-- idについて学習する -->
                 <?php echo anchor('goods/delete/?id='.$row->id, '削除', 'class="btn btn-primary"')?>
               </td>
           </tr>
