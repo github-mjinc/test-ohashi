@@ -10,6 +10,8 @@ class HookLayout
         $this->ci =& get_instance();
         $this->ci->yield = $this->ci->load->get_var('yield');
         $this->ci->layout = $this->ci->load->get_var('layout');
+        // CIで開発するときに現在のシステムで使ってるメモリやスピードSQLや変数などの環境の情報を確認
+        // $this->ci->output->enable_profiler(TRUE);
         $this->ci->output->enable_profiler(TRUE);
     }
     public function doLayout()
