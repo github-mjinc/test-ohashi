@@ -28,6 +28,7 @@
     );
 
     // ②第2引数で条件を受け取ることができる(uploadの情報に$configの追加情報を増やしてlibraryに格納する)
+    // 修正ページで画像が出ないエラーの解決策。'upload'で記述しているため、editのsubmitは"upload"で書かないといけない
     $this->load->library("upload", $config);
     // ③create_formで入力された情報に$configで追加したuploadを、アップロードするメソッド（追加された設定を反映できる）
     $this->upload->do_upload();
@@ -178,12 +179,8 @@
     // この２つの文章はセットで使う（クエリビルダクラス）
     // replaceも使うが基本はupdateを使う
     $this->db->where('id', $id);
-    // ③updateしたデータを$dataに入れて、returnでコントローラーに返す
-    // echo '<pre>';
-    // print_r($data);
-    // echo '</pre>';
-    // exit;
     return $this->db->update($this->goods, $data);
+    // ③updateしたデータを$dataに入れて、returnでコントローラーに返す
   }
 
   // データベースから削除するメソッド

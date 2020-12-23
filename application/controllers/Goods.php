@@ -147,11 +147,10 @@
 
     // 編集画面
     public function edit(){
-      // ①IDをセグメントで取得する
-      // URIルーティング後のパス情報を取得するメソッド
-      // /の左から順番に、第一セグメント、第二セグメントというように呼ぶ
-      // →http:oohasi/params/dateみたいな感じで,paramsが第一セグメントになる
+      // ①IDをセグメントで取得する(http//oohashi/1/2←これがセグメント)
+      // →http:oohasi/params/dateみたいな感じで,paramsが第一セグメント、dateが第2セグメント
       // 今回のIDは第３セグメントなので、そこのIDを取得する
+      // URIルーティング後のパス情報を取得するメソッド
       $data['id'] = $this->uri->segment(3);
 
       $this->form_validation->set_rules('title', 'タイトル', 'trim|required');
@@ -160,8 +159,8 @@
 
       if ($this->form_validation->run())
       { 
+        // ②do_uploadでimageの設定を決める→$image_dataに格納
         $image_data = $this->goods_model->do_upload();
-        // ②ここに送られてきた情報が入ってくる
 
         $post = array(
           'title' => $this->form_validation->set_value('title'),
@@ -172,6 +171,7 @@
         // ③ここで自分のIDが必要になるため、$data['id']を追記しておく
         if ( $this->goods_model->modify($post, $data['id']) )
         {
+
           //成功
           redirect('goods');
         }

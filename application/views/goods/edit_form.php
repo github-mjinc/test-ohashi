@@ -12,25 +12,11 @@ $title = array(
 );
 ?>
 
-<?php
-$images = array(
-  'name'  => 'images',
-  'id'    => 'images',
-  'class' => 'form-control',
-  // $rowからtitleの情報を取ってくる/ここには基本情報が入る
-  // $row->titleの記述をすることで、mainページで選択した情報を持ってきて、基本情報の中入った状態になる
-  'value' => set_value('images', $row->images),
-  'placeholder' => 'title',
-  'maxlength' => 80,
-  'size'  => 20,
-);
-?>
-
     <div class="border col-7 mt-4 mx-auto">
       <?php echo heading('データ編集', 2, 'class="mt-4"'); ?>
       <div class="row mt-5">
         <div class="col-md">
-          <?php echo form_open(); ?>
+          <?php echo form_open_multipart(); ?>
             <div class="form-group">
               <label>タイトル：</label>
               <?php echo form_input($title); ?>
@@ -50,7 +36,7 @@ $images = array(
             </div>
             <div id="upload">
               <label>ファイル：</label>
-              <?php echo form_upload('images', $presences, set_value( 'images', $row->images ), 'class= "form-control"'); ?>
+              <?php echo form_upload("userfile"); ?>
             </div>
             </div>
         </div>
@@ -58,7 +44,8 @@ $images = array(
           <div class="col-1">
           </div>
           <div class="col-5 mb-4">
-            <?php echo form_submit('register', '変更する', 'class="btn btn-outline-primary btn-block"'); ?>
+            <!-- 画像が送信できないエラーがでた際、register→uploadに変更して解決 -->
+            <?php echo form_submit('upload', '変更する', 'class="btn btn-outline-primary btn-block"'); ?>
           </div>
           <div class="col-5">
             <?php echo anchor('goods/index', '閉じる', 'class="btn btn-outline-secondary btn-block"')?>
