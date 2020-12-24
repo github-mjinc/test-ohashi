@@ -15,10 +15,6 @@
     public function index(){
       // ①modelからデータを取るためにgetAllへ移動する
       $data['query'] = $this->goods_model->getAll();
-      // echo '<pre>';
-      // print_r($data);
-      // echo '</pre>';
-      // exit;
       // ②imagesを加工したデータを取得してくる
       $data["images"] = $this->goods_model->get_images();
       // ③viewにデータを表示するための記述

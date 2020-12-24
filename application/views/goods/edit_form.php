@@ -19,6 +19,7 @@ $title = array(
           <?php echo form_open_multipart(); ?>
             <div class="form-group">
               <label>タイトル：</label>
+              <!-- $titleにarrayを入れて、変数で表示する方法 -->
               <?php echo form_input($title); ?>
               <?php echo form_error($title['name']); ?><?php echo isset($errors[$title['name']])?$errors[$title['name']]:'';?>
             </div>
@@ -36,7 +37,8 @@ $title = array(
             </div>
             <div id="upload">
               <label>ファイル：</label>
-              <?php echo form_upload("userfile"); ?>
+              <!-- 直接form_uploadにarrayで情報を書き込む方法 -->
+              <?php echo form_upload(array('name' => 'userfile', 'id' => 'userfile', 'value' => set_value('images', $row->images),)); ?>
             </div>
             </div>
         </div>
