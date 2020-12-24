@@ -12,7 +12,7 @@ $title = array(
 );
 ?>
 
-    <div class="border col-7 mt-4 mx-auto">
+    <div class="border col-7 mt-5 mx-auto">
       <?php echo heading('データ登録', 2, 'class="mt-4"'); ?>
       <div class="row mt-5">
         <div class="col-md">

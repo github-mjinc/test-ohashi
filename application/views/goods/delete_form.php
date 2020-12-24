@@ -1,5 +1,5 @@
   <?php echo form_open('goods/delete/?id='.$id); ?>
-    <div class="border col-7 mt-4 mx-auto">
+    <div class="border col-7 mt-5 mx-auto">
       <?php echo heading('削除 内容確認', 1, 'class="delete mt-4"'); ?>
       <p class="text_delete mt-5">こちらの内容を取り消してもよろしいでしょうか？</p>
       <p class="text_delete">よろしれば、「削除する」ボタンを押してください。 </p>

@@ -1,4 +1,6 @@
 <?php
+// 基本CIではこの記述を入れておく
+// 「BASEPATH」がindex.phpで定義されていない場合は直接のアクセスは許可されない。不要なユーザーをフォルダやファイルに入れないようにするための記述
   defined('BASEPATH') OR exit('No direct script access allowed'); 
 
   class Goods extends CI_Controller {

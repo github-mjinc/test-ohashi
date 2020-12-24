@@ -1,3 +1,4 @@
+<!-- ③Hooksのコントローラー部分の記述 -->
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
  * $this->load->vars(array('layout'=>'default'));
@@ -40,6 +41,7 @@ class HookLayout
             {
                 $this->ci->layout .= '.php';
             }
+            // 下の２行でlayoutsの場所を指定できる
             $requested = APPPATH . 'layouts';
             $requested .= '/' . $this->ci->layout;
             $layout = $this->ci->load->file($requested, true);

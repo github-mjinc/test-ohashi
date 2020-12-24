@@ -104,6 +104,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
+// ①Hooksの機能を使うためにFALSE→TRUEに変更する
 $config['enable_hooks'] = TRUE;
 
 /*
@@ -436,6 +437,7 @@ $config['standardize_newlines'] = FALSE;
 |          for backwards compatibility purposes!
 |
 */
+// セキュリティーを守る記述
 $config['global_xss_filtering'] = TRUE;
 
 /*

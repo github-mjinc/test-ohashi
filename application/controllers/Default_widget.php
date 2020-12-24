@@ -1,3 +1,4 @@
+<!-- ①Wedgetの使い方。まずコントローラーの作成 -->
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Default_widget extends Widget
 {

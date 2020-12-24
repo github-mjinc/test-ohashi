@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
+// ②Hooksを使うための記述をする
+// display_override　＝＞すべての処理が終わって、画面にその結果を表示する前に入れるコードを作成のこと
 $hook['display_override'][] = array(
   'class'    => 'HookLayout',
   'function' => 'doLayout',

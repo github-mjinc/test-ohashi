@@ -15,6 +15,7 @@
   </head>
   <body>
     <div class="container">
+      <!-- 下の記述で、他のファイルをここに代入できる -->
     {yield}
       </div>
     </body>

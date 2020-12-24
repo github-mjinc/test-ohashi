@@ -1,5 +1,5 @@
   
-  <div class="border col-7 mt-4 mx-auto">
+  <div class="border col-7 mt-5 mx-auto">
     <!-- ①CSVファイルはリンクanchorで作っていく -->
     <!-- ※goods/csv_downloadを記述することで、csv_downloadコントローラーに移動ができる -->
     <?php echo anchor('goods/csv_download', 'CSVエクスポート', 'class="btn btn-outline-info btn-sm mt-3 mb-2 float-right"'); ?>
@@ -44,4 +44,5 @@
           <?php endforeach;?>
         </tbody>
       </table>
+          </div>
             

@@ -58,6 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
+// libraliesはよく見ておく。datebaseの読み込みも実際記述を忘れていた
 $autoload['libraries'] = array('widget', 'form_validation',"database", "session");
 
 /*
