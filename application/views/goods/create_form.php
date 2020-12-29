@@ -69,7 +69,8 @@ $title = array(
       </div>
  
        <!-- JSクリックした時にファイル表示&&ドラッグドロップでもOK -->
-  <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
-<script>
-  bsCustomFileInput.init();
-</script>
+       <!-- 相対パスでファイルを指定する -->
+  <script src="../../js/goods.js"></script>
+  <script>
+    bsCustomFileInput.init();
+  </script>
