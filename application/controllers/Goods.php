@@ -10,6 +10,7 @@
       $this->load->helper(array('form', 'url', 'download'));
       $this->load->vars(array('layout'=>'admin_layout'));
       $this->load->model('goods_model'); 
+      $this->load->library('javascript');
     }
 
     public function index(){
@@ -193,5 +194,5 @@
       $this->load->view('goods/edit_form', $data);
       
     }
-    
+
   }

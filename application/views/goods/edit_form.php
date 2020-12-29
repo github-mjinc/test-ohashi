@@ -18,28 +18,32 @@ $title = array(
         <div class="col-md">
           <?php echo form_open_multipart(); ?>
             <div class="form-group">
-              <label>タイトル：</label>
+              <?php echo form_label('タイトル:')?>
               <!-- $titleにarrayを入れて、変数で表示する方法 -->
               <?php echo form_input($title); ?>
               <?php echo form_error($title['name']); ?><?php echo isset($errors[$title['name']])?$errors[$title['name']]:'';?>
             </div>
             <div class="form-group">
-                <label>内容：</label>
+              <?php echo form_label('内容:')?>
                 <!-- set_valueの'genre'の右側に例えば、 'SF'と入れると、inputの中の基本情報がSFになる -->
                 <!-- $row->genreと書くことで、id で取得した情報の中のgenreをinputの中に基本情報として入れておくことが出来る -->
                 <?php echo form_dropdown('genre', $options, set_value( 'genre', $row->genre ), 'class= "form-control"'); ?>
                 <?php echo form_error('genre'); ?><?php echo isset($errors['genre'])?$errors['genre']:'';?>
             </div>
             <div class="form-group">
-              <label>在庫：</label>
+              <?php echo form_label('在庫:')?>
               <?php echo form_dropdown('stock', $presences, set_value( 'stock', $row->stock ), 'class= "form-control"'); ?>
               <?php echo form_error('stock'); ?><?php echo isset($errors['stock'])?$errors['stock']:'';?>
             </div>
+            <!-- ファイルップロード用の記述。CIは使えないため普通の記述。 -->
             <div id="upload">
-              <label>ファイル：</label>
-              <!-- 直接form_uploadにarrayで情報を書き込む方法 -->
-              <?php echo form_upload(array('name' => 'userfile', 'id' => 'userfile', 'value' => set_value('images', $row->images),)); ?>
-            </div>
+              <label for="inputFile">ファイル:</label>
+              <div class="custom-file">
+                <input type="file" name = "userfile" class="custom-file-input" id="inputFile">
+                <!-- nameのuserfileは重要！ここでファイルを取ってくる！ -->
+                <label class="custom-file-label" for="inputFile" data-browse="参照">ファイルを選択（ここにドロップすることも出来ます）</label>
+              </div>
+              </div>
             </div>
         </div>
         <div class="row center-block text-center mt-4 mb-4">
@@ -55,3 +59,9 @@ $title = array(
           </form>
         </div>
   </div>
+
+  <!-- JSクリックした時にファイル表示&&ドラッグドロップでもOK -->
+  <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script>
+  bsCustomFileInput.init();
+</script>
