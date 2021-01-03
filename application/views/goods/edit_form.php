@@ -38,14 +38,20 @@ $title = array(
             <!-- ファイルップロード用の記述。CIは使えないため普通の記述。 -->
             <div id="upload">
               <label for="inputFile">ファイル:</label>
-              <div class="custom-file">
-                <input type="file" name = "userfile" class="custom-file-input" id="inputFile">
-                <!-- nameのuserfileは重要！ここでファイルを取ってくる！ -->
-                <label class="custom-file-label" for="inputFile" data-browse="参照">ファイルを選択（ここにドロップすることも出来ます）</label>
-              </div>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name = "userfile" class="custom-file-input" id="inputFile">
+                  <!-- nameのuserfileは重要！ここでファイルを取ってくる！ -->
+                  <label class="custom-file-label" for="inputFile" data-browse="参照">ファイルを選択（ここにドロップすることも出来ます）</label>
+                </div>
+                <!-- 取り消しボタンの作成 -->
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-outline-secondary input-group-text" id="inputFileReset">取消</button>
+                </div>
+                </div>
               </div>
             </div>
-        </div>
+          </div>
         <div class="row center-block text-center mt-4 mb-4">
           <div class="col-1">
           </div>
@@ -61,8 +67,15 @@ $title = array(
   </div>
 
   <!-- JSクリックした時にファイル表示&&ドラッグドロップでもOK -->
-  <!-- 相対パスでフォルダを指定する -->
+  <!-- 相対パスでフォルダを指定する CDN外部ファイルの読み込みでの記述は極力避ける-->
   <script src="../../js/goods.js"></script>
   <script>
+    // ファイル選択JS
     bsCustomFileInput.init();
+    // ファイル削除のJS
+    document.getElementById('inputFileReset').addEventListener('click', function() {
+    var elem = document.getElementById('inputFile');
+    elem.value = '';
+    elem.dispatchEvent(new Event('change'));
+  });
   </script>
