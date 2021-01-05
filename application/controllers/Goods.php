@@ -152,9 +152,11 @@
       // URIルーティング後のパス情報を取得するメソッド
       $data['id'] = $this->uri->segment(3);
 
+      // ここの記述でエラーメッセージが表示される
       $this->form_validation->set_rules('title', 'タイトル', 'trim|required');
       $this->form_validation->set_rules('genre', '内容', 'trim|required');
       $this->form_validation->set_rules('stock', '在庫', 'trim|required');
+      $this->form_validation->set_rules('images', 'ファイル', 'trim|required');
 
       if ($this->form_validation->run())
       { 
@@ -166,6 +168,7 @@
           'genre' => $this->form_validation->set_value('genre'),
           'stock' => $this->form_validation->set_value('stock'),
           'images' => $image_data['file_name'],
+          'images' => $this->form_validation->set_value('images'),
         );
         // ③ここで自分のIDが必要になるため、$data['id']を追記しておく
         if ( $this->goods_model->modify($post, $data['id']) )
@@ -192,6 +195,10 @@
       $data['presences'] = $this->config->item('presences');
 
       $this->load->view('goods/edit_form', $data);
+      // echo '<pre>';
+      // print_r($data);
+      // echo '</pre>';
+      // exit;
       
     }
 

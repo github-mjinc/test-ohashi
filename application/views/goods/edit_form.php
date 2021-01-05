@@ -21,6 +21,7 @@ $title = array(
               <?php echo form_label('タイトル:')?>
               <!-- $titleにarrayを入れて、変数で表示する方法 -->
               <?php echo form_input($title); ?>
+              <!-- バリデーションの記述位置はどこでも良し/pタグで入れたい位置に入れる -->
               <?php echo form_error($title['name']); ?><?php echo isset($errors[$title['name']])?$errors[$title['name']]:'';?>
             </div>
             <div class="form-group">
@@ -49,6 +50,8 @@ $title = array(
                   <button type="button" class="btn btn-outline-secondary input-group-text" id="inputFileReset">取消</button>
                 </div>
                 </div>
+                <!-- ファイルへのバリデーション -->
+                <?php echo form_error('images'); ?><?php echo isset($errors['images'])?$errors['images']:'';?>
               </div>
             </div>
           </div>
