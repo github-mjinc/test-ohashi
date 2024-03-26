@@ -44,7 +44,7 @@
   </head>
   <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal">Yamaura super site!!</h5>
+  <h5 class="my-0 mr-md-auto font-weight-normal">Yamaura super</h5>
   <nav class="my-2 my-md-0 mr-md-3">
     <?php echo anchor('goods', 'List', 'class="text-dark p-2"')?>
     <?php echo anchor('goods/create', 'Post', 'class="text-dark p-2"')?>
