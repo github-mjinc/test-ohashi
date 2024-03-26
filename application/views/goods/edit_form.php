@@ -51,7 +51,7 @@ $title = array(
                 </div>
                 </div>
                 <!-- ファイルへのバリデーション -->
-                <?php echo form_error('images'); ?><?php echo isset($errors['images'])?$errors['images']:'';?>
+                <?php echo form_error('userfile'); ?><?php echo isset($errors['userfile'])?$errors['userfile']:'';?>
               </div>
             </div>
           </div>
@@ -68,6 +68,11 @@ $title = array(
           </form>
         </div>
   </div>
+
+
+
+
+  
 
   <!-- JSクリックした時にファイル表示&&ドラッグドロップでもOK -->
   <!-- 相対パスでフォルダを指定する CDN外部ファイルの読み込みでの記述は極力避ける-->

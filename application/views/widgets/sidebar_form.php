@@ -1,2 +1,2 @@
 <!-- ②Wedget viewを作成する -->
-<h1>Test Sidebar</h1>
+<h>Test Sidebar</h

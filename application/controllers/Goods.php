@@ -75,8 +75,8 @@
           'stock' => $this->form_validation->set_value('stock'),
           'images' => $image_data['file_name'],
         );
-        // ⑦DBに登録をしていくメソッドへ
-        // ここでは$postとして配列を作っているが、registerアクションにいく時には$postはどんな名前にしても良い（今回は$data）
+        // ⑦DBに登録をしていくメソッド(models)
+        // 上のデータを$postに配列として代入。モデルの、registerアクションに移動する
         // DBに登録が成功ですか？↓
         if ( $this->goods_model->register($post) )
         {
@@ -156,7 +156,13 @@
       $this->form_validation->set_rules('title', 'タイトル', 'trim|required');
       $this->form_validation->set_rules('genre', '内容', 'trim|required');
       $this->form_validation->set_rules('stock', '在庫', 'trim|required');
-      $this->form_validation->set_rules('images', 'ファイル', 'trim|required');
+      $this->form_validation->set_rules('userfile', 'ファイル', 'trim');
+
+      // POSTデータとして「userfile」のデータがあるかどうか確認
+      // echo '<pre>';
+      // print_r($_POST);
+      // print_r($_FILES);
+      // echo '</pre>';
 
       if ($this->form_validation->run())
       { 
@@ -168,7 +174,7 @@
           'genre' => $this->form_validation->set_value('genre'),
           'stock' => $this->form_validation->set_value('stock'),
           'images' => $image_data['file_name'],
-          'images' => $this->form_validation->set_value('images'),
+          'userfile' => $this->form_validation->set_value('userfile'),
         );
         // ③ここで自分のIDが必要になるため、$data['id']を追記しておく
         if ( $this->goods_model->modify($post, $data['id']) )

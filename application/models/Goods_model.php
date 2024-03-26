@@ -31,7 +31,15 @@
     // 修正ページで画像が出ないエラーの解決策。'upload'で記述しているため、editのsubmitは"upload"で書かないといけない
     $this->load->library("upload", $config);
     // ③create_formで入力された情報に$configで追加したuploadを、アップロードするメソッド（追加された設定を反映できる）
-    $this->upload->do_upload();
+    if ( ! $this->upload->do_upload('userfile'))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        return NULL;
+      }
+      else
+      {
+        $data = array('upload_data' => $this->upload->data());
+      }
     
     // ④アップロードしたファイルについての情報を配列で返すメソッド/$this->upload->data()
     // 今回は、$this->upload->dataの情報を、$image_dateに格納している
@@ -107,17 +115,17 @@
   // DBのテーブルから情報を取り出すメソッド
   public function getAll()
   {
-    // ①DBにてデータを取り出すコマンドを使う
-    // $this->db->getでselect * テーブルと同じで全データの取得
-    // 取得した後は、結果を表示するために変数に代入する
+  // ①DBにてデータを取り出すコマンドを使う
+  // $this->db->getでselect * テーブルと同じで全データの取得
+  // 取得した後は、結果を表示するために変数$queryに代入する
   $query = $this->db->get($this->goods);
   // ②modelにいるので、コントローラーで使うためにreturnで値を戻してくる
   return $query;
   }
 
   // DBに情報を保存するメソッド
-  // ここの$dataについては、情報に名前をつけただけなので名前はなんでも良い
-  // コントローラーの$postが突然$dataに変わっているが、名前を分かりやすくしただけなので大丈夫
+  // ①先ほどのcreateで送られた情報を$postで持ってくているが、わかりやすくするためにここでは$dataに名前を変更
+  // ②このメソッドのスコープ内でも"$data=〇〇"を定義していないと、未定義になってしまうため、デフォルト値として$data=NULLを設定している
   public function register($data=NULL)
   {
     // echo '<pre>';
